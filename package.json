@@ -1,0 +1,32 @@
+{
+  "name": "5ive-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "deploy": "firebase deploy --only functions:api"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tbdex/http-client": "^2.2.1",
+    "@tbdex/http-server": "^2.2.1",
+    "@tbdex/protocol": "^2.2.1",
+    "@web5/api": "^0.10.0",
+    "@web5/credentials": "^1.1.1",
+    "@web5/dids": "^1.1.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "firebase-functions": "^6.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  },
+  "engines": {
+    "node": "20"
+  }
+}
