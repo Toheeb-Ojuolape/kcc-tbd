@@ -6,6 +6,7 @@ import router from "./src/routes/routes.js";
 import { handleError } from "./src/helpers/handleError.js";
 import functions from "firebase-functions";
 import { Web5 } from "@web5/api";
+import { web5CommunityConfig } from "./src/config/config.js";
 
 // Initialize app
 const app = express();
@@ -16,7 +17,7 @@ let web5Instance = null;
 
 const initWeb5 = async () => {
   try {
-    const { web5 } = await Web5.connect();
+    const { web5 } = await Web5.connect({...web5CommunityConfig});
     web5Instance = web5;
     console.log("Web5 connected successfully.");
   } catch (error) {
@@ -30,7 +31,7 @@ initWeb5();
 // Middleware
 app.use(express.json());
 
-const allowedOrigins = ["http://localhost:8080", "https://5ive.netlify.app"];
+const allowedOrigins = ["http://localhost:8080"];
 
 app.use(
   cors({
