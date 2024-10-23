@@ -4,7 +4,7 @@
 
 
 ### Overview 🌳
-This project is a simple implementation of a Decentralized Web Node (DWN) that enables secure storage, management, and transmission of verifiable credentials and decentralized identifiers (DiD). The DWN acts as a personal data storage hub in decentralized identity ecosystems, allowing users to control and share their data with trusted parties without relying on centralized intermediaries.
+This project is a simple implementation of a Decentralized Web Node (DWN) that enables secure storage, management, and transmission of verifiable credentials and decentralized identifiers (DiD). The DWN acts as a personal data storage hub in decentralized identity ecosystems, allowing users to control and share their data with trusted parties without relying on centralized intermediaries. **The project uses the DIF community DWN instance hosted by Google Cloud.**
 
 In this implementation, the DWN facilitates:
 
@@ -13,6 +13,21 @@ In this implementation, the DWN facilitates:
 - **Privacy-Preserving Sharing:** Users can selectively disclose specific information from their verifiable credentials, sharing only what is necessary for a given transaction or interaction, enhancing privacy and minimizing data exposure.
 - **Tamper-Proof Verification:** The DWN ensures that all interactions and credentials are cryptographically signed and verifiable, preventing unauthorized changes or fraud.
 
+
+### Real-World Usecases / Feasibility
+The API simply takes in a customer's Did and uses it to generate an access token. Once the token is generated, it can then be used to sign operations such as creating a Known Customer Credential (KCC) for a user and storing the KCC in the user's DWN. 
+
+The code that converts the customer's DID to an access token serves as a way to mirror how real-life applications could use the same approach to build a middleware layer using customerDid to authenticate users within their application. 
+
+The approach of converting a customer's DID to an access token is grounded in established decentralized identity protocols and is aligned with modern developments in identity management. The Decentralized Identifier (DID) standard from W3C provides a globally unique identifier that does not rely on centralized authorities, which makes it highly secure and resistant to fraud.
+
+**Decentralization:** Traditional authentication methods rely on centralized identity providers (such as OAuth or social logins), which can introduce single points of failure. DIDs operate in a decentralized manner, using blockchain or similar technologies, making them ideal for distributed applications.
+
+**Privacy and Security:** By using DIDs to authenticate users, personal information need not be shared unnecessarily. Access tokens derived from DIDs can offer time-limited or task-specific access, reducing the risk of identity theft and unauthorized access.
+
+**Scalability:** The approach of generating access tokens from DIDs is scalable across multiple applications and services. Middleware systems can easily integrate DID-based authentication to manage user permissions, token expiration, and data flow in a decentralized network.
+
+**Standards Support:** The growing support for standards like Verifiable Credentials (VCs) and Decentralized Web Nodes (DWNs) ensures that DID-based authentication has a solid infrastructure for adoption across various platforms.
 
 ### Endpoints ⚙️
 
