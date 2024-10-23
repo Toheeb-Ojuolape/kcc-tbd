@@ -2,7 +2,10 @@ import axios from "axios";
 
 
 export const getPermission = async (issuerDid) => {
-  console.log(issuerDid)
+    /********************************************
+   * Obtain permission as a Credential issuer to be able to issue KCC on behalf of user
+   ********************************************/
+
   try {
     const response = await axios({
       method: "GET",

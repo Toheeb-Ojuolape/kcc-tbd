@@ -2,6 +2,14 @@ import { Jwt } from "@web5/credentials";
 import { generateCNonce } from "../utils/generateNonce.js";
 
 export const createCustomerToken = async (req, res) => {
+
+  /********************************************
+   * Obtain the customerDid and grant-type from the request
+   * The grant-type has to be pre-authorized_code to indicate that the user
+   * gives permission for the DWN to generate a toke on their behalf
+   ********************************************/
+
+
   const { grant_type, customerDid } = req.body;
 
   if (grant_type !== "urn:ietf:params:oauth:grant-type:pre-authorized_code") {
@@ -13,13 +21,6 @@ export const createCustomerToken = async (req, res) => {
     return res.status(400).json({ error: "invalid_grant" });
   }
 
-  // Check the status of the IDV
-
-//   const idvCompleted = checkIDVStatus(customersDidUri);
-//   if (!idvCompleted) {
-//     return res.status(400).json({ error: "authorization_pending" });
-//   }
-
   /********************************************
    * Create the payload for the access token
    ********************************************/
@@ -29,10 +30,12 @@ export const createCustomerToken = async (req, res) => {
     iat: Math.floor(Date.now() / 1000), // Issued at
     exp: Math.floor(Date.now() / 1000) + 86400, // Expiration time
   };
+
   /********************************************
-   * sign accessToken and generate a c_nonce
+   * Create accessToken and generate a c_nonce
    ********************************************/
 
+  // obtain the issuerBearerDid of the DWN to be used to sign the JWT  access token 
   const { did: issuerBearerDid } = await req.web5.agent.identity.get({ didUri: req.web5.connectedDid })
   try {
     const accessToken = await Jwt.sign({
@@ -41,9 +44,6 @@ export const createCustomerToken = async (req, res) => {
     });
 
     const cNonce = generateCNonce();
-    // accessTokenToCNonceMap.set(accessToken, cNonce);
-
-    // preAuthCodeToDidMap.delete(code);
 
     res.json({
       access_token: accessToken,

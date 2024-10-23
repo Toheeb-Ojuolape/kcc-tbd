@@ -5,8 +5,10 @@ import { protocolDefinition } from "../config/config.js";
 export const storeVC = async (req, res) => {
   try {
     const { credential } = req.body;
-    const customerDid = req.token.payload.sub; //obtain Alice's DID from the Authorization token being passed
-    const response = await getPermission(req.web5.connectedDid); //get permission to send details
+    const customerDid = req.token.payload.sub; // obtain Alice's DID from the Authorization token being passed
+
+    const response = await getPermission(req.web5.connectedDid); //get permission to send the credential to Alice's DWN
+
     if (response.data.status.code === 200) {
       const { protocol } = await req.web5.dwn.protocols.configure({
         message: {
@@ -14,13 +16,11 @@ export const storeVC = async (req, res) => {
         },
       });
 
-      //immediately send protocol to user's remote DWNs
-      console.log(req.web5.connectedDid);
-      const { status: sendStatus } = await protocol.send(req.web5.connectedDid);
-
-      console.log(sendStatus);
+      //immediately send protocol to Alice's remote DWN
+      await protocol.send(req.web5.connectedDid);
 
 
+      // create a record of the credential in Alice's remote DWN
       const { record } = await req.web5.dwn.records.create({
         data: credential,
         store: false,
@@ -34,9 +34,8 @@ export const storeVC = async (req, res) => {
         },
       });
 
-      console.log("customerDid", customerDid);
       const { status } = await record.send(customerDid);
-      res.status(status.code).json({ message: status.detail });
+      res.status(status.code).json({ message: status.detail, recordId: record._recordId });
     }
   } catch (error) {
     handleError(error, res);

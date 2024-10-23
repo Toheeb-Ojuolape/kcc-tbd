@@ -54,7 +54,7 @@ app.use((req, res, next) => {
 // Routes
 app.use(router);
 
-app.get("/", (req, res) => res.send(`<h2>5ive's Web5 API ⚡</h2>`));
+app.get("/", (req, res) => res.send(`<h2>KCC Hackathon Web5 API ⚡</h2>`));
 
 app.listen(port, () => {
   console.log(`App listening on PORT: ${port}`);

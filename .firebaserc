@@ -1,5 +1,9 @@
 {
   "projects": {
-    "default": "web5-wallet"
-  }
+    "default": "kcc-hackathon-77094",
+    "kcc": "kcc-hackathon-77094"
+  },
+  "targets": {},
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
 }

@@ -1,6 +1,10 @@
 import { Jwt } from "@web5/credentials";
 
 async function verifyToken(req, res, next) {
+    /********************************************
+   * This middleware validates if a valid token is passed for protected/authorized routes
+   ********************************************/
+
   try {
     const authHeader = req.headers["authorization"];
     if (!authHeader) {
