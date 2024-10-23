@@ -1,5 +1,8 @@
 # KCC Hackathon
 
+![Sequence diagram](https://github.com/user-attachments/assets/93e78b0c-ce23-4614-9421-d0fe2c8d1d33)
+
+
 ### Overview 🌳
 This project is a simple implementation of a Decentralized Web Node (DWN) that enables secure storage, management, and transmission of verifiable credentials and decentralized identifiers (DiD). The DWN acts as a personal data storage hub in decentralized identity ecosystems, allowing users to control and share their data with trusted parties without relying on centralized intermediaries.
 
@@ -23,3 +26,7 @@ In this implementation, the DWN facilitates:
 
 ### Documentation 📃
 Here is the link to documentation: https://documenter.getpostman.com/view/25719172/2sAY4rEk58
+
+
+### Video Demo 📹
+Watch a demo of how it works here: https://www.youtube.com/watch?v=CL95YdvO-Fg
