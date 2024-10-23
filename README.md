@@ -1,6 +1,6 @@
 # KCC Hackathon
 
-![Sequence diagram](https://github.com/user-attachments/assets/93e78b0c-ce23-4614-9421-d0fe2c8d1d33)
+![Sequence diagram (1)](https://github.com/user-attachments/assets/eeade685-2fd3-4a5f-b831-896a25c077d8)
 
 
 ### Overview 🌳
