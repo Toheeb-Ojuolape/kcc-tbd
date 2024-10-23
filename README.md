@@ -14,7 +14,7 @@ In this implementation, the DWN facilitates:
 - **Tamper-Proof Verification:** The DWN ensures that all interactions and credentials are cryptographically signed and verifiable, preventing unauthorized changes or fraud.
 
 
-### Real-World Usecases / Feasibility
+### Real-World Use cases / Feasibility
 The API simply takes in a customer's Did and uses it to generate an access token. Once the token is generated, it can then be used to sign operations such as creating a Known Customer Credential (KCC) for a user and storing the KCC in the user's DWN. 
 
 The code that converts the customer's DID to an access token serves as a way to mirror how real-life applications could use the same approach to build a middleware layer using customerDid to authenticate users within their application. 
