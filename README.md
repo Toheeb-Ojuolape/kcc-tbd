@@ -32,6 +32,13 @@ The approach of converting a customer's DID to an access token is grounded in es
 
 ### 1. Generate Access Token
 - **URL:**  `/token`
+- **Method:** `POST`
+- **Description:** This takes in the customerDid of the user and the grant_type to return a JWT accessToken for signing transactions and an expiryTime.
+- **Sample Request:**
+  ```{
+    "customerDid":"did:dht:rr1w5z9hdjtt76e6zmqmyyxc5cfnwjype6prz45m6z1qsbm8yjao"
+}```
+- **Sample Response:**
 - [x] /token (POST REQUEST): This takes in the customerDid of the user and the grant_type to return a JWT accessToken for signing transactions and an expiryTime.
       
 - [x] /credentials (POST REQUEST): This takes in details like the country, name and documents of the user and requires Authorization by the token generated in the first step to create a KCC credential in the form of a JWT token
