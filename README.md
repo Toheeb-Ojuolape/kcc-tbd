@@ -1,5 +1,4 @@
-# KCC Hackathon
-
+# Known Customer Credential (KCC) Issuance Service
 ![Sequence diagram (1)](https://github.com/user-attachments/assets/eeade685-2fd3-4a5f-b831-896a25c077d8)
 
 
@@ -47,4 +46,4 @@ Here is the link to documentation: https://documenter.getpostman.com/view/257191
 Watch a demo of how it works here: https://www.youtube.com/watch?v=CL95YdvO-Fg
 
 ## Deployment 🌨️
-The project is deployed for public use using Google's Firebase Cloud Functions
+The project is deployed for public use using Google's Firebase Cloud Functions. You can test in real-time here: https://api-xtygkd52ya-uc.a.run.app
