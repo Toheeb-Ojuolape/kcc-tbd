@@ -28,6 +28,35 @@ The approach of converting a customer's DID to an access token is grounded in es
 
 **Standards Support:** The growing support for standards like Verifiable Credentials (VCs) and Decentralized Web Nodes (DWNs) ensures that DID-based authentication has a solid infrastructure for adoption across various platforms.
 
+
+# Project Setup🚦
+
+## Pre-requisites
+To run this project you need:
+
+- Node.js version 16 or greater
+- Text Editor, preferably Visual Studio Code.
+- Web Browser,  preferably Google Chrome.
+
+## Setup 🛠️
+**Step 1:**  Clone the repo:
+```
+git clone https://github.com/Toheeb-Ojuolape/kcc-tbd.git
+```
+**Step 2:**  Change the directory to kcc-tbd
+```
+cd kcc-tbd
+```
+**Step 3:** Install all the required dependencies (using npm in our case)
+```
+npm install
+```
+**Step 4:** Run the project locally by starting the server
+```
+npm run start
+```
+
+
 ## API Endpoints ⚙️
 
 ### 1. Generate Access Token
