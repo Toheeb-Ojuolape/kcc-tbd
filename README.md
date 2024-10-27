@@ -13,7 +13,7 @@ In this implementation, the DWN facilitates:
 - **Tamper-Proof Verification:** The DWN ensures that all interactions and credentials are cryptographically signed and verifiable, preventing unauthorized changes or fraud.
 
 
-## Real-World Use cases / Feasibility
+## Real-World Use cases / Feasibility 🧑‍🤝‍🧑
 The API simply takes in a customer's Did and uses it to generate an access token. Once the token is generated, it can then be used to sign operations such as creating a Known Customer Credential (KCC) for a user and storing the KCC in the user's DWN. 
 
 The code that converts the customer's DID to an access token serves as a way to mirror how real-life applications could use the same approach to build a middleware layer using customerDid to authenticate users within their application. 
@@ -51,8 +51,29 @@ The approach of converting a customer's DID to an access token is grounded in es
   "c_nonce": ....,
   "c_nonce_expires_in": 86400
   }
-  ```    
-- [x] /credentials (POST REQUEST): This takes in details like the country, name and documents of the user and requires Authorization by the token generated in the first step to create a KCC credential in the form of a JWT token
+  ```
+
+### 2. Create KCC Credential
+- **URL:**  `/credentials`
+- **Method:** `POST`
+- **Authorization:** `Bearer Token`
+- **Description:** This takes in user details like the country, name and documents of the user and requires Authorization by the token generated in the first step to create a KCC credential in the form of a JWT token
+
+- **Sample Request:**
+  ```
+  {
+   "country":"NG",
+   "name":"Toheeb Ojuolape",
+   "documents": ["passport", "utility_bill"]
+  }
+  ```
+
+- **Sample Response:**
+  ```
+  {
+  "credential": "eyJhbGciOiJFZERTQSIsImtpZCI6ImRpZDpkaHQ6b2Uxc3Njc3hmNTRhYnJnOWJ5bjZkcXd1anM2Z3RmbXNuOGI2cG5oNGZ4MzMxZzg0N2pieSMwIn0.eyJ2YyI6eyJAY29udGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsImh0dHBzOi8vdzNpZC5vcmcvdmMvc3RhdHVzLWxpc3QvMjAyMS92MSJdLCJ0eXBlIjpbIlZlcmlmaWFibGVDcmVkZW50aWFsIl0sImlkIjoidXJuOnV1aWQ6OTdlYjQwNjYtZGFkZi00Y2QxLTllMWItYWFjYjYzNDc1Y2FkIiwiaXNzdWVyIjoiZGlkOmRodDpvZTFzc2NzeGY1NGFicmc5YnluNmRxd3VqczZndGZtc244YjZwbmg0ZngzMzFnODQ3amJ5IiwiaXNzdWFuY2VEYXRlIjoiMjAyNC0xMC0yM1QxNDozNzozMloiLCJjcmVkZW50aWFsU3ViamVjdCI6eyJpZCI6ImRpZDpkaHQ6cnIxdzV6OWhkanR0NzZlNnptcW15eXhjNWNmbndqeXBlNnByejQ1bTZ6MXFzYm04eWphbyIsImNvdW50cnlPZlJlc2lkZW5jZSI6Ik5HIiwianVyaXNkaWN0aW9uIjp7ImNvdW50cnkiOiJORyJ9fSwiZXhwaXJhdGlvbkRhdGUiOiIyMDI5LTEwLTIzVDE0OjM3OjMyLjg5MFoiLCJjcmVkZW50aWFsU2NoZW1hIjp7ImlkIjoiaHR0cHM6Ly92Yy5zY2hlbWFzLmhvc3Qva2NjLnNjaGVtYS5qc29uIiwidHlwZSI6Ikpzb25TY2hlbWEifSwiZXZpZGVuY2UiOlt7ImtpbmQiOiJkb2N1bWVudF92ZXJpZmljYXRpb24iLCJjaGVja3MiOlsicGFzc3BvcnQiLCJ1dGlsaXR5X2JpbGwiXX0seyJraW5kIjoiYmlvbWV0cmljIiwiY2hlY2tzIjoiVG9oZWViIE9qdW9sYXBlIn1dfSwibmJmIjoxNzI5Njk0MjUyLCJqdGkiOiJ1cm46dXVpZDo5N2ViNDA2Ni1kYWRmLTRjZDEtOWUxYi1hYWNiNjM0NzVjYWQiLCJpc3MiOiJkaWQ6ZGh0Om9lMXNzY3N4ZjU0YWJyZzlieW42ZHF3dWpzNmd0Zm1zbjhiNnBuaDRmeDMzMWc4NDdqYnkiLCJzdWIiOiJkaWQ6ZGh0OnJyMXc1ejloZGp0dDc2ZTZ6bXFteXl4YzVjZm53anlwZTZwcno0NW02ejFxc2JtOHlqYW8iLCJpYXQiOjE3Mjk2OTQyNTIsImV4cCI6MTg4NzQ2MDY1Mn0.PHPd-irB2tk661Pi_1_gMbms19EWNAtiHi5NYZ5GKQihVmP0PSCUs4l48nP6jxUQN6MgVlms2s47RPRLCICKCQ"
+}
+  ```
 
 - [x] /store-vc (POST REQUEST): This takes in the KCC generated in the previous step and saves it to the DWN associated with the customerDID. It returns a status description and the recordID
 
