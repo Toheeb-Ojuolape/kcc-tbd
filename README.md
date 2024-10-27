@@ -3,7 +3,7 @@
 ![Sequence diagram (1)](https://github.com/user-attachments/assets/eeade685-2fd3-4a5f-b831-896a25c077d8)
 
 
-### Overview 🌳
+## Overview 🌳
 This project is a simple implementation of a Decentralized Web Node (DWN) that enables secure storage, management, and transmission of verifiable credentials and decentralized identifiers (DiD). The DWN acts as a personal data storage hub in decentralized identity ecosystems, allowing users to control and share their data with trusted parties without relying on centralized intermediaries. **The project uses the DIF community DWN instance hosted by Google Cloud.**
 
 In this implementation, the DWN facilitates:
@@ -14,7 +14,7 @@ In this implementation, the DWN facilitates:
 - **Tamper-Proof Verification:** The DWN ensures that all interactions and credentials are cryptographically signed and verifiable, preventing unauthorized changes or fraud.
 
 
-### Real-World Use cases / Feasibility
+## Real-World Use cases / Feasibility
 The API simply takes in a customer's Did and uses it to generate an access token. Once the token is generated, it can then be used to sign operations such as creating a Known Customer Credential (KCC) for a user and storing the KCC in the user's DWN. 
 
 The code that converts the customer's DID to an access token serves as a way to mirror how real-life applications could use the same approach to build a middleware layer using customerDid to authenticate users within their application. 
@@ -29,7 +29,7 @@ The approach of converting a customer's DID to an access token is grounded in es
 
 **Standards Support:** The growing support for standards like Verifiable Credentials (VCs) and Decentralized Web Nodes (DWNs) ensures that DID-based authentication has a solid infrastructure for adoption across various platforms.
 
-### Endpoints ⚙️
+## API Endpoints ⚙️
 
 - [x] /token (POST REQUEST): This takes in the customerDid of the user and the grant_type to return a JWT accessToken for signing transactions and an expiryTime.
       
@@ -39,9 +39,12 @@ The approach of converting a customer's DID to an access token is grounded in es
 
 
 
-### Documentation 📃
+## Documentation 📃
 Here is the link to documentation: https://documenter.getpostman.com/view/25719172/2sAY4rEk58
 
 
-### Video Demo 📹
+## Video Demo 📹
 Watch a demo of how it works here: https://www.youtube.com/watch?v=CL95YdvO-Fg
+
+## Deployment 🌨️
+The project is deployed for public use using Google's Firebase Cloud Functions
