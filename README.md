@@ -36,9 +36,11 @@ The approach of converting a customer's DID to an access token is grounded in es
 - **Description:** This takes in the customerDid of the user and the grant_type to return a JWT accessToken for signing transactions and an expiryTime.
   
 - **Sample Request:**
-  ``` {
+  ```
+  {
     "customerDid":"did:dht:rr1w5z9hdjtt76e6zmqmyyxc5cfnwjype6prz45m6z1qsbm8yjao" // Alice's DID
-  } ```
+  }
+  ```
   
 - **Sample Response:**
   ```
@@ -46,37 +48,10 @@ The approach of converting a customer's DID to an access token is grounded in es
   "access_token": "eyJhbGciOiJFZERTQSIsImtpZCI6ImRpZDpkaHQ6b2Uxc3Njc3hmNTRhYnJnOWJ5bjZkcXd1anM2Z3RmbXNuOGI2cG5oNGZ4MzMxZzg0N2pieSMwIn0.eyJzdWIiOiJkaWQ6ZGh0OnJyMXc1ejloZGp0dDc2ZTZ6bXFteXl4YzVjZm53anlwZTZwcno0NW02ejFxc2JtOHlqYW8iLCJpc3MiOiJkaWQ6ZGh0Om9lMXNzY3N4ZjU0YWJyZzlieW42ZHF3dWpzNmd0Zm1zbjhiNnBuaDRmeDMzMWc4NDdqYnkiLCJpYXQiOjE3Mjk2OTQyMzYsImV4cCI6MTcyOTc4MDYzNn0.ikfiI2c-sG0E6zFBG4IJioNtEvR-nVS2loH2W6Tb9eaOlif5F8TxbR0_gXsK2P-9paKDo01-tIuNXk8RWxIfCw",
   "token_type": "bearer",
   "expires_in": 86400,
-  "c_nonce": {
-    "0": 57,
-    "1": 94,
-    "2": 35,
-    "3": 186,
-    "4": 181,
-    "5": 136,
-    "6": 42,
-    "7": 184,
-    "8": 250,
-    "9": 202,
-    "10": 131,
-    "11": 233,
-    "12": 140,
-    "13": 190,
-    "14": 66,
-    "15": 98,
-    "16": 146,
-    "17": 137,
-    "18": 103,
-    "19": 248,
-    "20": 32,
-    "21": 148,
-    "22": 206,
-    "23": 4
-  },
+  "c_nonce": ....,
   "c_nonce_expires_in": 86400
-}
-  ```
-- [x] /token (POST REQUEST): This takes in the customerDid of the user and the grant_type to return a JWT accessToken for signing transactions and an expiryTime.
-      
+  }
+  ```    
 - [x] /credentials (POST REQUEST): This takes in details like the country, name and documents of the user and requires Authorization by the token generated in the first step to create a KCC credential in the form of a JWT token
 
 - [x] /store-vc (POST REQUEST): This takes in the KCC generated in the previous step and saves it to the DWN associated with the customerDID. It returns a status description and the recordID
