@@ -31,7 +31,7 @@ The approach of converting a customer's DID to an access token is grounded in es
 
 ## Project Setup🚦
 
-**Pre-requisites**
+- **Pre-requisites**
 To run this project you need:
 
 - Node.js version 16 or greater
